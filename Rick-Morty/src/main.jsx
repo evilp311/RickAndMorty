@@ -6,13 +6,20 @@ import {
   RouterProvider,
 } from "react-router";
 import Root from './route/root.jsx';
-
+import Home,{LoaderData} from './route/home.jsx';
 let router=createBrowserRouter(
   [
     {
       path:'/',
       Component:Root,
+      children:[
+        {
+          index:true,
+          Component:Home,
+          loader:LoaderData,
 
+        }
+      ]
     }
   ]
 )
