@@ -1,18 +1,35 @@
 import { Card } from "flowbite-react";
-export default function Person(){
+import { Link } from "react-router";
+import Alive from "../utils/alive";
+import Dead from "../utils/dead";
+export default function Person({pr}){
+    const{id,name,img, status,org ,species}=pr
     return(
+        
         <>
+        <Link to={`/character/${id}`} className="flex justify-center items-center">
             <Card
-                className="max-w-sm"
-                renderImage={() => <Image width={500} height={500} src="/images/blog/image-1.jpg" alt="image 1" />}
+                className="min-w-[294px] h-[400px] rounded-[8px] bg-[#313234] mb-4 text-[16px] text-[#FFFFFF]" applyTheme={{root:{base:'replace'}}}
+                renderImage={() => <img src={img} className="min-w-[262px] h-[200px] rounded-4xl px-4 pt-3"/>}
               >
-                 <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                     Noteworthy technology acquisitions 2021
+                 <h5 className=" font-bold mb-12   " >
+                    {name}
                  </h5>
-                 <p className="font-normal text-gray-700 dark:text-gray-400">
-                      Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                 </p>
+                 <div className=" ">
+                       <h5 className="flex gap-2">
+                        {status==`Alive`?<Alive/>:<Dead/>}
+                          {status}
+                      </h5>
+                    <h5>
+                        {species}
+                    </h5>
+                    <h5>
+                        {org}
+                    </h5>
+                 </div>
+
              </Card>
+        </Link>
         </>
     )
 }
