@@ -4,7 +4,7 @@ export default async function getPerson () {
   try {
     const pr = []
     for (let i = 0; i <= 7; i++) {
-      pr.push(Math.ceil(Math.random() * 183))
+      pr.push(Math.ceil(Math.random() * 826))
     }
     const res = await axios.get(
       `https://rickandmortyapi.com/api/character/${pr}`
