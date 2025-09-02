@@ -1,5 +1,5 @@
 import BackToTop from "../utils/backtoArrow"
-export default function BackTo(){
+export default function BackTo({scrollToTop}){
     return(
         <>
             <div className="bg-[#1e1e20]  ">
@@ -7,7 +7,9 @@ export default function BackTo(){
                         <img src="./img/LogoA.svg" alt="" />
                         <div className="flex items-center gap-1">
                           <p>Back To Top</p>
-                          <button><BackToTop className="text-[#1e1e20] w-12 cursor-pointer"/></button>
+                          <button onClick={()=>{
+                            scrollToTop();
+                          }}><BackToTop className="text-[#1e1e20] w-12 cursor-pointer"/></button>
                         </div>
                     </div>
             </div>
