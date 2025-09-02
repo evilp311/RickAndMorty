@@ -4,30 +4,34 @@ import ListOfEpisodes from "../components/ListOfEpisodes"
 import ListOfLoactions from "../components/ListOfLoactions"
 import getPerson from "../api/getPersons"
 import getEpisods from "../api/getEpisods"
-
+import getLoactions from "../api/getLoacations"
 export async function LoaderData(){
-    const[person,episod]=await Promise.all([
+    const[person,episod,loacat]=await Promise.all([
         getPerson(),
         getEpisods(),
+        getLoactions(),
+        
     ])
     return{
         person:person,
-        episod:episod
+        episod:episod,
+        loacat:loacat
     }
    // const person= await getPerson();
    // const episod=await getEpisods();
    // return{person,episod}
 }
 export default function Home(){
-     const {episod,person}=useLoaderData()
+     const {episod,person,loacat}=useLoaderData()
      console.log(episod)
      console.log(person)
+     console.log(loacat)
     return(
         <>
         <div className="bg-[#1e1e20]">
           <ListOfPersons person={person}/>
           <ListOfEpisodes episod={episod}/>
-          <ListOfLoactions/>
+          <ListOfLoactions loacat={loacat}/>
         </div>
         
         </>
