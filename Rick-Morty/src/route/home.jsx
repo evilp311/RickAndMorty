@@ -23,9 +23,6 @@ export async function LoaderData(){
 }
 export default function Home(){
      const {episod,person,loacat}=useLoaderData()
-     console.log(episod)
-     console.log(person)
-     console.log(loacat)
     return(
         <>
         <div className="bg-[#1e1e20]">

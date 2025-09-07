@@ -1,3 +1,29 @@
 @import "tailwindcss";
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
+
+
+.paginationContainer{
+   
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    list-style: none;
+    
+    
+}
+
+.paginationContainer a{
+    border: 1px solid white;
+    border-radius: 100%;
+    padding: 15px 20px 15px 20px;
+    margin: 8px;
+    cursor: pointer;
+}
+.paginationContainer a:hover{
+    background-color: #11B0C8;
+}
+.paginationActive a{
+     background-color: #11B0C8;
+}

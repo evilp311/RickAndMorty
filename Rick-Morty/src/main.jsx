@@ -7,6 +7,7 @@ import {
 } from "react-router";
 import Root from './route/root.jsx';
 import Home,{LoaderData} from './route/home.jsx';
+import Episodes ,{LoderEpisodePage} from './route/episodes.jsx';
 let router=createBrowserRouter(
   [
     {
@@ -18,9 +19,17 @@ let router=createBrowserRouter(
           Component:Home,
           loader:LoaderData,
 
-        }
+        },
+       
       ]
-    }
+    },
+     {
+          path:'episodes/:id',
+          Component:Episodes,
+          loader:LoderEpisodePage,
+
+        }
+
   ]
 )
 

@@ -1,18 +1,18 @@
 import View from "../utils/viewMore";
 import { Link } from "react-router";
 import TvShow from "../utils/tvShow";
-export default function Episode({id,name,episod}){
+export default function Episode({id,name,episode}){
     return(
         <>
-        <Link to={`/episodes/${id}`} className="flex justify-center items-center">
-            <div  className="min-w-[300px] min-h-[96px] bg-[#1a1a1a] hover:bg-[#313234]   rounded-2xl  ">
-                <div className="flex items-center justify-start flex-wrap text-[16px] gap-1 pt-4 pl-2  pb-3 pr-2  "> 
+        <Link to={`/episodes/${id}`} className="flex  justify-center items-center m-2">
+            <div  className="w-[300px] h-[165px] bg-[#1a1a1a] hover:bg-[#313234]   rounded-2xl  ">
+                <div className="flex flex-wrap  items-center justify-start  text-[16px] gap-1 pt-4 pl-2  pb-3 pr-2  "> 
                     <TvShow/>
                      <h5 className="  text-white border-r-2 pr-2   ">
                          {name}
                       </h5>
                      <p className=" text-white ">
-                        {episod}
+                        {episode}
                      </p>
                 </div>
                

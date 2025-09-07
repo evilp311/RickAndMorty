@@ -9,7 +9,7 @@ export default function ListOfEpisodes({episod}){
                 {episod &&(
                     episod.map((episod)=>{
                         return(
-                            <Episode key={episod.id} id={episod.id} name={episod.name} episod={episod.episode} />
+                            <Episode key={episod.id} id={episod.id} name={episod.name} episode={episod.episode} />
                         )
                     })
                 )}
