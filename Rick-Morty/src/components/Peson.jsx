@@ -12,7 +12,7 @@ export default function Person({pr}){
         <>
         <Link to={`/character/${id}`} className="flex justify-center items-center">
             <Card
-                className="min-w-[294px] h-[400px] rounded-[8px] bg-[#1a1a1a] hover:bg-[#313234]  mb-4 text-[16px] text-[#FFFFFF]" applyTheme={{root:{base:'replace'}}}
+                className="min-w-[294px] h-[450px] rounded-[8px] bg-[#1a1a1a] hover:bg-[#313234]  mb-4 text-[16px] border-0 text-[#FFFFFF]" applyTheme={{root:{base:'replace'}}}
                 renderImage={() => <img src={img} className="min-w-[262px] h-[200px] rounded-4xl px-3 pt-3"/>}
               >
                  <h5 className=" font-bold mb-3 " >
