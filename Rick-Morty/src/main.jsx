@@ -9,6 +9,7 @@ import Root from './route/root.jsx';
 import Home,{LoaderData} from './route/home.jsx';
 import Episodes ,{LoderEpisodePage} from './route/episodes.jsx';
 import Person,{LoaderPeesons} from './route/person.jsx';
+import Location,{LoderLocation} from './route/location.jsx';
 let router=createBrowserRouter(
   [
     {
@@ -35,6 +36,11 @@ let router=createBrowserRouter(
           Component:Person,
           loader:LoaderPeesons,
 
+        },
+        {
+          path:'locations/:id',
+          Component:Location,
+          loader:LoderLocation,
         }
 
   ]
