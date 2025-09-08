@@ -24,7 +24,7 @@ export async function LoderEpisodePage({params}){
 
 export default function Episodes(){
     const{eachEpisode,allEpisode}=useLoaderData()
-    console.log(allEpisode);
+   
      const scrollToTop = useCallback(() => {
                     window.scrollTo({
                         top: 0,

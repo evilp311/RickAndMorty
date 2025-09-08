@@ -8,6 +8,7 @@ import {
 import Root from './route/root.jsx';
 import Home,{LoaderData} from './route/home.jsx';
 import Episodes ,{LoderEpisodePage} from './route/episodes.jsx';
+import Person,{LoaderPeesons} from './route/person.jsx';
 let router=createBrowserRouter(
   [
     {
@@ -27,6 +28,12 @@ let router=createBrowserRouter(
           path:'episodes/:id',
           Component:Episodes,
           loader:LoderEpisodePage,
+
+        },
+        {
+          path:'character/:id',
+          Component:Person,
+          loader:LoaderPeesons,
 
         }
 
