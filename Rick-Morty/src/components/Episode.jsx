@@ -1,10 +1,19 @@
 import View from "../utils/viewMore";
 import { Link } from "react-router";
 import TvShow from "../utils/tvShow";
+import { useCallback } from "react";
 export default function Episode({id,name,episode}){
+     const scrollToTop = useCallback(() => {
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: 'smooth'
+                                });
+                            }, []);
     return(
         <>
-        <Link to={`/episodes/${id}`} className="flex  justify-center items-center m-2">
+        <Link to={`/episodes/${id}`} className="flex  justify-center items-center m-2" onClick={()=>{
+            scrollToTop();
+        }}>
             <div  className="w-[300px] h-[165px] bg-[#1a1a1a] hover:bg-[#313234]   rounded-2xl  ">
                 <div className="flex flex-wrap  items-center justify-start  text-[16px] gap-1 pt-4 pl-2  pb-3 pr-2  "> 
                     <TvShow/>

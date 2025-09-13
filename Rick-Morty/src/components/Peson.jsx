@@ -5,14 +5,24 @@ import Dead from "../utils/dead";
 import Human from "../utils/human";
 import Earth from "../utils/earth";
 import View from "../utils/viewMore";
+import { useCallback } from "react";
 export default function Person({pr}){
     const{id,name,img, status,org ,species}=pr
+     const scrollToTop = useCallback(() => {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    }, []);
     return(
         
         <>
         <Link to={`/character/${id}`} className="flex justify-center items-center">
             <Card
                 className="min-w-[294px] h-[450px] rounded-[8px] bg-[#1a1a1a] hover:bg-[#313234]  mb-4 text-[16px] border-0 text-[#FFFFFF]" applyTheme={{root:{base:'replace'}}}
+                onClick={()=>{
+                    scrollToTop();
+                }}
                 renderImage={() => <img src={img} className="min-w-[262px] h-[200px] rounded-4xl px-3 pt-3"/>}
               >
                  <h5 className=" font-bold mb-3 " >
