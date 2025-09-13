@@ -7,6 +7,7 @@ import BackTo from "../components/BackToTop"
 import { useCallback } from "react"
 import getPersonById from "../api/getPerosnByid"
 import getAllPerson from "../api/getAllPerson"
+import { useEffect } from "react"
 
 export async function LoaderPeesons({params}) {
     const[eachPerson,allPerson]=await Promise.all(
@@ -31,7 +32,9 @@ export default function Person(){
                         behavior: 'smooth'
                     });
                 }, []);
-
+                 useEffect(()=>{
+                            window.scrollTo(0,0);
+                        },[])
     return(
         <>
             <HeaderForList/>

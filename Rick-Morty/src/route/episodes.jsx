@@ -7,7 +7,7 @@ import { useLoaderData } from "react-router";
 import BackTo from "../components/BackToTop";
 import { useCallback } from "react"
 import FooterComp from "../components/Footer";
-
+import { useEffect } from "react";
 
 export async function LoderEpisodePage({params}){
     const[eachEpisode,allEpisode]=await Promise.all([
@@ -31,7 +31,9 @@ export default function Episodes(){
                         behavior: 'smooth'
                     });
                 }, []);
-    
+     useEffect(()=>{
+                window.scrollTo(0,0);
+            },[])
     return(
         <>
             <HeaderForList/>

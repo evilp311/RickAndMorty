@@ -24,8 +24,8 @@ export default function PageForAllLocations({allLocation}){
         <>
                 <div className="pt-12 pb-12">
                 <div className="flex items-center gap-4 pl-[200px] ">
-                     <img src="/img/Smiley.svg" alt="" />
-                     <h1 className="text-white text-2xl ">More <br /> Persons</h1>
+                     <img src="/img/location.svg" alt="" />
+                     <h1 className="text-white text-2xl ">More <br /> Locations</h1>
                 </div>
 
                 <div className="grid grid-cols-7 m-auto py-[80px] px-[100px]   ">

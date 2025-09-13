@@ -5,6 +5,7 @@ import ListOfLoactions from "../components/ListOfLoactions"
 import getPerson from "../api/getPersons"
 import getEpisods from "../api/getEpisods"
 import getLoactions from "../api/getLoacations"
+import { useEffect } from "react"
 export async function LoaderData(){
     const[person,episod,loacat]=await Promise.all([
         getPerson(),
@@ -23,6 +24,9 @@ export async function LoaderData(){
 }
 export default function Home(){
      const {episod,person,loacat}=useLoaderData()
+      useEffect(()=>{
+                 window.scrollTo(0,0);
+             },[])
     return(
         <>
         <div className="bg-[#1e1e20]">

@@ -1,5 +1,4 @@
 import getAllLocations from "../api/getAllLocations"
-import getLoactions from "../api/getLoacations"
 import getLocationByID from "../api/getLocationById"
 import BackTo from "../components/BackToTop"
 import FooterComp from "../components/Footer"
@@ -8,7 +7,7 @@ import PageForAllLocations from "../components/PageForAllLocations"
 import PageForLocation from "../components/PageForLocation"
 import { useCallback } from "react"
 import { useLoaderData } from "react-router"
-
+import { useEffect } from "react"
 export async function LoderLocation({params}) {
     const[eachLocation,allLocation]=await Promise.all(
     [
@@ -30,6 +29,9 @@ export default function Location(){
                         behavior: 'smooth'
                     });
                 }, []);
+        useEffect(()=>{
+            window.scrollTo(0,0);
+        },[])
     return(
         <>
             <HeaderForList/>
