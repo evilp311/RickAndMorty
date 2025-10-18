@@ -1,8 +1,11 @@
 import ReactPaginat from 'react-paginate'
 import { useState } from "react";
 import Person from "./Peson"
-export default function PageForAllPersons({allPerson}){
-
+import Smily from '../utils/smily';
+import SmilyBlack from '../utils/smile';
+import PersonForRoute from './PersonForRoute';
+export default function PageForAllPersons({allPerson,value}){
+    const valueDark=JSON.parse(localStorage.getItem('darkMode'));
     const[pageNumber,setPageNumber]=useState(0)
           const usersPErPage=12
             const pageVisited= pageNumber*usersPErPage
@@ -10,7 +13,7 @@ export default function PageForAllPersons({allPerson}){
                 
                                 return(
                                     
-                                    <Person key={pe.id} pr={pe} />
+                                    <PersonForRoute key={pe.id} pr={pe}  />
                                 )
                            
                         
@@ -23,9 +26,9 @@ export default function PageForAllPersons({allPerson}){
     return(
         <>
                <div className="pt-12 pb-12">
-                <div className="flex items-center gap-4 pl-[200px] ">
-                     <img src="/img/Smiley.svg" alt="" />
-                     <h1 className="text-white text-2xl ">More <br /> Persons</h1>
+                <div className="flex items-center gap-4 pl-[200px]  ">
+                     {value==false?<Smily/>:<SmilyBlack/>}
+                     <h1 className={value==false?"text-white text-2xl ":"text-[#313234] text-2xl "}>More <br /> Persons</h1>
                 </div>
 
                 <div className="flex flex-wrap gap-x-20 justify-center  m-auto py-[80px] px-[100px]   ">
@@ -38,7 +41,7 @@ export default function PageForAllPersons({allPerson}){
                           nextLabel={'>'}
                           pageCount={pageCount}
                           onPageChange={changePage}
-                          containerClassName={'paginationContainer'}
+                          containerClassName={valueDark==false?'paginationContainer':'paginationContainerBlack'}
                           previousClassName={'previousBtn'}
                           nextClassName={'nextBtn'}
                           disabledClassName={'paginationDisabled'}

@@ -1,8 +1,9 @@
 import { useState } from "react"
 import Location from "./Loacation"
 import ReactPaginat from 'react-paginate'
-export default function PageForAllLocations({allLocation}){
-    
+import LocationForRoute from "./LocationForRoute";
+export default function PageForAllLocations({allLocation,value}){
+        const valueDark=JSON.parse(localStorage.getItem('darkMode'));
         const[pageNumber,setPageNumber]=useState(0)
               const usersPErPage=14
                 const pageVisited= pageNumber*usersPErPage
@@ -10,7 +11,7 @@ export default function PageForAllLocations({allLocation}){
                     
                                     return(
                                         
-                                        <Location key={lo.id} id={lo.id} name={lo.name} type={lo.type}/>
+                                        <LocationForRoute key={lo.id} id={lo.id} name={lo.name} type={lo.type}/>
                                     )
                                
                             
@@ -24,8 +25,8 @@ export default function PageForAllLocations({allLocation}){
         <>
                 <div className="pt-12 pb-12">
                 <div className="flex items-center gap-4 pl-[200px] ">
-                     <img src="/img/location.svg" alt="" />
-                     <h1 className="text-white text-2xl ">More <br /> Locations</h1>
+                     {value==false?<img src="/img/location.svg" alt="" />:<img src="/img/locationBlack.svg" alt="" />}
+                     <h1 className={value==false?"text-[#FFFFFF] text-2xl ":"text-[#313234] text-2xl "}>More <br /> Locations</h1>
                 </div>
 
                 <div className="grid grid-cols-7 m-auto py-[80px] px-[100px]   ">
@@ -38,7 +39,7 @@ export default function PageForAllLocations({allLocation}){
                           nextLabel={'>'}
                           pageCount={pageCount}
                           onPageChange={changePage}
-                          containerClassName={'paginationContainer'}
+                          containerClassName={valueDark==false?'paginationContainer':'paginationContainerBlack'}
                           previousClassName={'previousBtn'}
                           nextClassName={'nextBtn'}
                           disabledClassName={'paginationDisabled'}

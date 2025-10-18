@@ -12,10 +12,10 @@ import HumanBlack from "../utils/humanBlack";
 import { useContext } from "react";
 import { Context } from "../App";
 import { useState } from "react";
-export default function Person({pr }){
+export default function PersonForRoute({pr }){
     const{id,name,img, status,org ,species}=pr
  
-     const value=useContext(Context);
+     const value=JSON.parse(localStorage.getItem('darkMode'));
     
         
      const scrollToTop = useCallback(() => {

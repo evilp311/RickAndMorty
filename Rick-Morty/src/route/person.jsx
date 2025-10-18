@@ -8,7 +8,10 @@ import { useCallback } from "react"
 import getPersonById from "../api/getPerosnByid"
 import getAllPerson from "../api/getAllPerson"
 import { useEffect } from "react"
-
+import { useContext } from "react"
+import { Context } from "../App"
+import BackToTopBlack from "../utils/blackArrowBlack"
+import BackToTopRoute from "../components/BacktoTopRoute"
 export async function LoaderPeesons({params}) {
     const[eachPerson,allPerson]=await Promise.all(
         [
@@ -24,8 +27,10 @@ export async function LoaderPeesons({params}) {
 
 
 export default function Person(){
-    const {eachPerson,allPerson}=useLoaderData();
 
+    const {eachPerson,allPerson}=useLoaderData();
+    const value=JSON.parse(localStorage.getItem('darkMode'));
+    console.log(value)
   const scrollToTop = useCallback(() => {
                     window.scrollTo({
                         top: 0,
@@ -37,14 +42,14 @@ export default function Person(){
                         },[])
     return(
         <>
-            <HeaderForList/>
-            <main className="bg-[#1e1e20]">
-                <PageForPerson eachPerson={eachPerson}/>
+            <HeaderForList value={value}/>
+            <main className={value==false?"bg-[#1e1e20]":'bg-primary'}>
+                <PageForPerson eachPerson={eachPerson} value={value}/>
                 <hr className="text-[#11B0C8]" />
-                <PageForAllPersons allPerson={allPerson} />
+                <PageForAllPersons allPerson={allPerson} value={value} />
             </main>
-            <BackTo scrollToTop={scrollToTop}/>
-            <footer className="bg-[#1e1e20]">
+            <BackToTopRoute scrollToTop={scrollToTop} value={value}/>
+            <footer className={value==false?"bg-[#1e1e20]":'bg-primary'}>
                 <FooterComp/>
             </footer>
            

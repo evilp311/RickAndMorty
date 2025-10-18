@@ -1,9 +1,10 @@
 import Episode from "./Episode"
 import ReactPaginat from 'react-paginate'
 import { useState } from "react";
+import EpisodeForRoute from "./EpisodForRoute";
 
 export default function PageForAllEpisodes({allEpisode}){
-
+    const valueDark=JSON.parse(localStorage.getItem('darkMode'));
     const[pageNumber,setPageNumber]=useState(0)
       const usersPErPage=15
         const pageVisited= pageNumber*usersPErPage
@@ -11,7 +12,7 @@ export default function PageForAllEpisodes({allEpisode}){
             
                             return(
                                 
-                                <Episode key={ep.id} id={ep.id} name={ep.name} episode={ep.episode}  />
+                                <EpisodeForRoute key={ep.id} id={ep.id} name={ep.name} episode={ep.episode}  />
                             )
                        
                     
@@ -39,7 +40,7 @@ export default function PageForAllEpisodes({allEpisode}){
                           nextLabel={'>'}
                           pageCount={pageCount}
                           onPageChange={changePage}
-                          containerClassName={'paginationContainer'}
+                          containerClassName={valueDark==false?'paginationContainer':'paginationContainerBlack'}
                           previousClassName={'previousBtn'}
                           nextClassName={'nextBtn'}
                           disabledClassName={'paginationDisabled'}

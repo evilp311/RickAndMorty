@@ -3,15 +3,20 @@
 @source "../.flowbite-react/class-list.json";
 
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@theme{
+    --color-primary:#FFFFFF;
+    --color-primary-dark:#000000;
+}
+
 .paginationContainer{
-   
     display: flex;
     justify-content: center;
     width: 100%;
     height: 40px;
     list-style: none;
-    
-    
 }
 
 .paginationContainer a{
@@ -26,4 +31,24 @@
 }
 .paginationActive a{
      background-color: #11B0C8;
+}
+
+.paginationContainerBlack{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    list-style: none;
+}
+
+.paginationContainerBlack a{
+    color: black;
+    border: 1px solid black;
+    border-radius: 100%;
+    padding: 15px 20px 15px 20px;
+    margin: 8px;
+    cursor: pointer;
+}
+.paginationContainerBlack a:hover{
+    background-color: #11B0C8;
 }

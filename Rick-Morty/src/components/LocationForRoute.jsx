@@ -2,12 +2,10 @@ import { Link } from "react-router";
 import Earth from "../utils/earth";
 import View from "../utils/viewMore";
 import { useCallback } from "react";
-import { useContext } from "react";
-import { Context } from "../App";
 import BlackEarth from "../utils/blackEarth";
 import ViewBlack from "../utils/viewMoreBlack";
-export default function Location({id,name,type}){
-    const value=useContext(Context)
+export default function LocationForRoute({id,name,type}){
+    const value=JSON.parse(localStorage.getItem('darkMode'));
      const scrollToTop = useCallback(() => {
                             window.scrollTo({
                                 top: 0,

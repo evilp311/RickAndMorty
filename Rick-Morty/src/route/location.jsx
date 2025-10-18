@@ -8,6 +8,7 @@ import PageForLocation from "../components/PageForLocation"
 import { useCallback } from "react"
 import { useLoaderData } from "react-router"
 import { useEffect } from "react"
+import BackToTopRoute from "../components/BacktoTopRoute"
 export async function LoderLocation({params}) {
     const[eachLocation,allLocation]=await Promise.all(
     [
@@ -22,7 +23,7 @@ export async function LoderLocation({params}) {
 
 export default function Location(){
     const {eachLocation,allLocation}=useLoaderData();
-
+    const value=JSON.parse(localStorage.getItem('darkMode'));
          const scrollToTop = useCallback(() => {
                     window.scrollTo({
                         top: 0,
@@ -34,14 +35,14 @@ export default function Location(){
         },[])
     return(
         <>
-            <HeaderForList/>
-            <main className="bg-[#1e1e20] ">
-                <PageForLocation eachLocation={eachLocation}/>
+            <HeaderForList value={value}/>
+            <main className={value==false?"bg-[#1e1e20]":'bg-primary'}>
+                <PageForLocation eachLocation={eachLocation} value={value}/>
                  <hr className="text-[#11B0C8]" />
-                <PageForAllLocations allLocation={allLocation}/>
+                <PageForAllLocations allLocation={allLocation} value={value}/>
             </main>
-            <BackTo scrollToTop={scrollToTop}/>
-            <footer className="bg-[#1e1e20] ">
+            <BackToTopRoute scrollToTop={scrollToTop} value={value}/>
+            <footer className={value==false?"bg-[#1e1e20]":'bg-primary'}>
                 <FooterComp/>
             </footer>
             

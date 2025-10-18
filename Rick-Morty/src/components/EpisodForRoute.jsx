@@ -2,18 +2,16 @@ import View from "../utils/viewMore";
 import { Link } from "react-router";
 import TvShow from "../utils/tvShow";
 import { useCallback } from "react";
-import { useContext } from "react";
-import { Context } from "../App";
 import TvShowBlack from "../utils/tvShowBlack";
 import ViewBlack from "../utils/viewMoreBlack";
-export default function Episode({id,name,episode}){
+export default function EpisodeForRoute({id,name,episode}){
      const scrollToTop = useCallback(() => {
                                 window.scrollTo({
                                     top: 0,
                                     behavior: 'smooth'
                                 });
                             }, []);
-    const value=useContext(Context);
+     const value=JSON.parse(localStorage.getItem('darkMode'));
     return(
         <>
         <Link to={`/episodes/${id}`} className="flex  justify-center items-center m-2" onClick={()=>{

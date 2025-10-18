@@ -8,6 +8,8 @@ import BackTo from "../components/BackToTop";
 import { useCallback } from "react"
 import FooterComp from "../components/Footer";
 import { useEffect } from "react";
+import BackToTopBlack from "../utils/blackArrowBlack";
+import BackToTopRoute from "../components/BacktoTopRoute";
 
 export async function LoderEpisodePage({params}){
     const[eachEpisode,allEpisode]=await Promise.all([
@@ -24,7 +26,7 @@ export async function LoderEpisodePage({params}){
 
 export default function Episodes(){
     const{eachEpisode,allEpisode}=useLoaderData()
-   
+    const value=JSON.parse(localStorage.getItem('darkMode'));
      const scrollToTop = useCallback(() => {
                     window.scrollTo({
                         top: 0,
@@ -36,14 +38,14 @@ export default function Episodes(){
             },[])
     return(
         <>
-            <HeaderForList/>
-            <main className="bg-[#1e1e20]">
-                <PageForEpisode eachEpisode={eachEpisode} />
+            <HeaderForList value={value}/>
+            <main className={value==false?"bg-[#1e1e20]":'bg-primary'}>
+                <PageForEpisode eachEpisode={eachEpisode} value={value} />
                  <hr className="text-[#11B0C8]" />
-                <PageForAllEpisodes allEpisode={allEpisode}/>
+                <PageForAllEpisodes allEpisode={allEpisode} value={value}/>
             </main>
-              <BackTo scrollToTop={scrollToTop} />
-              <footer className="bg-[#1e1e20] ">
+              <BackToTopRoute scrollToTop={scrollToTop} value={value} />
+              <footer className={value==false?"bg-[#1e1e20]":'bg-primary'}>
                     <FooterComp/>
               </footer>
         </>
